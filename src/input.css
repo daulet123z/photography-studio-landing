@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Aster Vale Photography — Tailwind CSS v4 entry file
+
+   This is the SOURCE. Don't link it in HTML: run `npm run build` (or
+   `npm run dev` while editing) and Tailwind writes the final css/style.css
+   with only the utilities actually used in index.html and js/main.js.
+
+   1. Theme tokens (@theme) — become utilities like bg-paper, text-ink,
+      font-display, and CSS variables like var(--color-sage-600)
+   2. Base styles
+   3. A few reusable components (buttons, form fields, reveal animation)
+   ========================================================================== */
+@import "tailwindcss";
+
+/* 1. Theme tokens — change these to re-brand the page
+   ========================================================================== */
+@theme {
+  /* Colours: each one generates bg-*, text-*, border-*… utilities */
+  --color-paper: #f5f2ec;        /* page background */
+  --color-paper-dark: #ebe5da;   /* alternate sections, image frames */
+  --color-ink: #191714;          /* main text, dark sections */
+  --color-ink-soft: #4a453e;     /* secondary text (8:1 on paper) */
+  --color-ink-muted: #b9b1a5;    /* secondary text on dark sections */
+  --color-sage-100: #e3e9e0;
+  --color-sage-500: #5b6f5a;     /* accent: buttons, links, details */
+  --color-sage-600: #4a5c49;     /* hover */
+  --color-sage-300: #a9bba6;     /* accent on dark backgrounds */
+  --color-error: #b3261e;
+
+  /* Fonts: font-display (headings) and font-sans (body, the default) */
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Reveal-on-scroll animation */
+  --animate-fade-up: fade-up 700ms ease-out both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+  }
+}
+
+/* 2. Base
+   ========================================================================== */
+@layer base {
+  html {
+    scroll-padding-top: 5rem; /* anchors stop below the sticky header */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display font-normal tracking-tight text-balance;
+  }
+
+  :focus-visible {
+    @apply outline-3 outline-offset-3 outline-sage-500;
+  }
+}
+
+/* 3. Components — small reusable class groups built from utilities
+   ========================================================================== */
+@layer components {
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-ink text-paper hover:bg-sage-600;
+  }
+
+  .btn-outline {
+    @apply border-2 border-ink text-ink hover:bg-ink hover:text-paper;
+  }
+
+  .eyebrow {
+    @apply mb-3 text-sm font-semibold tracking-[0.14em] text-sage-600 uppercase;
+  }
+
+  .section-title {
+    @apply mb-4 text-4xl leading-tight sm:text-5xl;
+  }
+
+  /* Form fields: red border when JS marks them aria-invalid="true" */
+  .field {
+    @apply block min-h-12 w-full rounded-xl border-[1.5px] border-[#8a8278] bg-white px-4 py-3 text-ink transition-colors placeholder:text-ink-soft focus:border-sage-500 focus:outline-3 focus:outline-sage-500/30 aria-[invalid=true]:border-error;
+  }
+
+  /* Reveal on scroll: main.js adds .is-visible. Only hidden when JS runs. */
+  .js .reveal {
+    @apply opacity-0;
+  }
+
+  .js .reveal.is-visible {
+    @apply opacity-100 motion-safe:animate-fade-up;
+  }
+}

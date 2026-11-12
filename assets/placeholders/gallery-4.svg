@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <!-- Placeholder: replace with a real photo (1200×800) -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8dccb"/><stop offset="1" stop-color="#a08766"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <circle cx="1020" cy="96" r="240" fill="#fff" fill-opacity=".1"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="7.9" stroke-linecap="round">
+    <circle cx="600" cy="360" r="110"/><path d="M710.0 360.0L617.9 406.1M655.0 455.3L569.0 398.6M545.0 455.3L551.1 352.5M490.0 360.0L582.1 313.9M545.0 264.7L631.0 321.4M655.0 264.7L648.9 367.5"/></g>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle" fill="#fff">
+    <text x="600" y="710" font-size="34" font-weight="600" fill-opacity=".92">Wedding</text>
+    <text x="600" y="750" font-size="22" fill-opacity=".7">Placeholder · 1200×800</text>
+  </g>
+</svg>
